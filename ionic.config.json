@@ -1,0 +1,7 @@
+{
+  "name": "Got-Timer-App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
