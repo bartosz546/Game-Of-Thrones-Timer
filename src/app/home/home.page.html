@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+  <ion-toolbar color="primary">
+    <ion-title class="thick-game-of-thrones-font">
+      GOT Timer
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,32 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large" class="thick-game-of-thrones-font">Settings</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+  <div cdkDropList cdkDropListOrientation="mixed" class="example-list" (cdkDropListDropped)="drop($event)">
+    @for (house of houses; track house) {
+      <img [src]="house.simplifiedLogo" class="house-simplified-logo" cdkDrag alt="">
+    }
+  </div>
+
+  <div class="current-player">CURRENT PLAYER</div>
+
+  <div class="house-logo-detailed">
+    <img [src]="houses[currentHouseIndex].detailedLogo" (click)="goToNext()" alt=""/>
+  </div>
+
+  <div class="timer-wrapper">
+    <ion-icon name="remove-circle" (click)="decreaseTime()"></ion-icon>
+    <cd-timer
+      #timer
+      [startTime]="INITIAL_COUNTDOWN_TIME"
+      [autoStart]="true"
+      [countdown]="true"
+      format="ms"
+    ></cd-timer>
+    <ion-icon name="add-circle" (click)="increaseTime()"></ion-icon>
   </div>
 </ion-content>

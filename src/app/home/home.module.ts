@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
+import {CountdownComponent} from "ngx-countdown";
+import {CdTimerModule} from "angular-cd-timer";
 
 
 @NgModule({
@@ -12,7 +15,11 @@ import { HomePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    CdkDropList,
+    CdkDrag,
+    CountdownComponent,
+    CdTimerModule
   ],
   declarations: [HomePage]
 })
